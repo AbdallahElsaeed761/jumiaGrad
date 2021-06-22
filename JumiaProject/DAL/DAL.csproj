@@ -58,6 +58,10 @@
     <Compile Include="Migrations\202106211406428_first.Designer.cs">
       <DependentUpon>202106211406428_first.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106221136134_editPayment.cs" />
+    <Compile Include="Migrations\202106221136134_editPayment.Designer.cs">
+      <DependentUpon>202106221136134_editPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -76,7 +80,7 @@
     <Compile Include="Models\Promotions.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Models\Seller.cs" />
-    <Compile Include="Models\ShoppingDetails.cs" />
+    <Compile Include="Models\ShippingDetails.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Models\SubCategory.cs" />
     <Compile Include="Models\View.cs" />
@@ -89,6 +93,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202106211406428_first.resx">
       <DependentUpon>202106211406428_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106221136134_editPayment.resx">
+      <DependentUpon>202106221136134_editPayment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

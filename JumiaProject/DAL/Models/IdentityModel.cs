@@ -32,6 +32,7 @@ namespace DAL.Models
         public string Gender { get; set; }
         [Range(18,100,ErrorMessage ="you should more than 0 or 18 and less than 100")]
         public byte Age { get; set; }
+        public virtual List<Payment> Payments { get; set; }
     }
     
     public class ApplicationUserStore : UserStore<applicationUser>

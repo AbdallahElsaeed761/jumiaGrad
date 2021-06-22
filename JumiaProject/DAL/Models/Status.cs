@@ -14,5 +14,6 @@ namespace DAL.Models
         public bool Isdeleted { get; set; }
 
         public virtual List<Cart> Carts { get; set; }
+
     }
 }

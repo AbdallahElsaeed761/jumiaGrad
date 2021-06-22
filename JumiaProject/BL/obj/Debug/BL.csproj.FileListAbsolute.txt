@@ -1,0 +1,2 @@
+D:\ForMe\MVC\Project\JumiaGP\jumiaGrad\JumiaProject\BL\obj\Debug\BL.csprojAssemblyReference.cache
+D:\ForMe\MVC\Project\JumiaGP\jumiaGrad\JumiaProject\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
