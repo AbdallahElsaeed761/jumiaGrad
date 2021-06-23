@@ -57,6 +57,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppServices\AccountAppServices.cs" />
+    <Compile Include="AppServices\BrandsAppServices.cs" />
+    <Compile Include="AppServices\CartAppServices.cs" />
+    <Compile Include="AppServices\CartItemAppServices.cs" />
+    <Compile Include="AppServices\CategoryAppServices.cs" />
+    <Compile Include="AppServices\CustomerAppServices.cs" />
+    <Compile Include="AppServices\EmployeeAppServices.cs" />
+    <Compile Include="AppServices\GovernorateAppServices.cs" />
+    <Compile Include="AppServices\InventoryAppServices.cs" />
+    <Compile Include="AppServices\InventoryProductAppServices.cs" />
+    <Compile Include="AppServices\PaymentAppServices.cs" />
+    <Compile Include="AppServices\ProductAppServices.cs" />
+    <Compile Include="AppServices\ProductDetailsAppServices.cs" />
+    <Compile Include="AppServices\ProductImageAppServices.cs" />
+    <Compile Include="AppServices\PromotionAppServices.cs" />
+    <Compile Include="AppServices\ReviewAppServices.cs" />
+    <Compile Include="AppServices\RoleAppServices.cs" />
+    <Compile Include="AppServices\SellerAppServices.cs" />
+    <Compile Include="AppServices\ShippedDetailsAppServices.cs" />
+    <Compile Include="AppServices\StatusAppServices.cs" />
+    <Compile Include="AppServices\SubCategoryAppServices.cs" />
+    <Compile Include="AppServices\ViewsAppServices.cs" />
     <Compile Include="Basices\AppServiceBase.cs" />
     <Compile Include="Basices\BaseRepository.cs" />
     <Compile Include="Basices\UnitOfWork.cs" />
@@ -113,9 +135,7 @@
     <Compile Include="ViewModels\SubCategoryViewModel.cs" />
     <Compile Include="ViewModels\ViewsViewModel.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AppServices\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{9AC44FE0-06F3-4BAC-8E3C-0BD4F845D713}</Project>
