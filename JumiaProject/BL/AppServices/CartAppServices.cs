@@ -25,6 +25,17 @@ namespace BL.AppServices
             }
             return result;
         }
+        public bool CreateUserCart(string userId)
+        {
+            bool result = false;
+            Cart userCart = new Cart() { CustomerID = userId };
+            if (TheUnitOfWork.Cart.Insert(userCart))
+            {
+                result = TheUnitOfWork.Commit() > new int();
+            }
+            return result;
+        }
+
         public bool UpdateCart(CartViewModel cartViewModel)
         {
             var cart = Mapper.Map<Cart>(cartViewModel);

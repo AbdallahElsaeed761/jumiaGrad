@@ -1,5 +1,6 @@
 ﻿using DAL.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -11,14 +12,24 @@ namespace BL.Reporsities
 {
    public class AccountRepository:Basices.BaseRepository<applicationUser>
     {
-        ApplicationUserManager manager;
+        //ApplicationUserManager manager;
+       
+        private readonly UserManager<applicationUser> manager;
+        private readonly RoleManager<IdentityRole> roleManager;
 
         public AccountRepository(DbContext db) : base(db)
         {
             manager = new ApplicationUserManager(db);
         }
-       
-        
+        public AccountRepository(DbContext db, UserManager<applicationUser> manager, RoleManager<IdentityRole> roleManager) : base(db)
+        {
+            //manager = new ApplicationUserManager(db);
+            this.manager = manager;
+            this.roleManager = roleManager;
+
+        }
+
+
         public applicationUser GetAccountById(string id)
         {
             return GetFirstOrDefault(a => a.Id == id);
@@ -32,21 +43,37 @@ namespace BL.Reporsities
             applicationUser result = manager.FindById(id);
             return result;
         }
+        public applicationUser FindByName(string userName)
+        {
+            applicationUser result =  manager.FindByName(userName);
+            return result;
+        }
+       
         public applicationUser Find(string username, string password)
         {
             applicationUser result = manager.Find(username, password);
             return result;
         }
+        //public async Task<IEnumerable<string>> GetUserRoles(applicationUser user)
+        //{
+        //    var userRoles = await manager.GetRolesAsync(user);
+        //    return userRoles;
+        //}
         public IdentityResult Register(applicationUser user)
         {
+            user.Id = Guid.NewGuid().ToString();
             IdentityResult result = manager.Create(user, user.PasswordHash);
             return result;
+
         }
-        public IdentityResult AssignToRole(string userid, string rolename)
+        
+        public  IdentityResult AssignToRole(string userid, string rolename)
         {
             IdentityResult result = manager.AddToRole(userid, rolename);
             return result;
+
         }
+     
         public bool updatePassword(applicationUser user)
         {
             user.PasswordHash = manager.PasswordHasher.HashPassword(user.PasswordHash);

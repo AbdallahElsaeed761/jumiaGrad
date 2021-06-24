@@ -9,11 +9,15 @@ namespace BL.ViewModels
 {
     public class RegisterViewModel
     {
+        public string Id { get; set; }
         [Required(ErrorMessage = "First Name is required")]
         public string Fname { get; set; }
 
         [Required(ErrorMessage = "Last Name is required")]
         public string Lname { get; set; }
+        [Display(Name = "User Name")]
+        public string UserName { get; set; }
+      
 
         [Required(ErrorMessage = "Address is required")]
         public string Address { get; set; }

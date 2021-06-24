@@ -1,4 +1,5 @@
-﻿using DAL.Models;
+﻿using BL.StatisClass;
+using DAL.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
@@ -22,9 +23,23 @@ namespace BL.Reporsities
         {
             return GetFirstOrDefault(r => r.Id == id);
         }
+        public async Task CreateRoles()
+        {
+
+            if (!await manager.RoleExistsAsync(UserRoles.Admin))
+                await manager.CreateAsync(new IdentityRole(UserRoles.Admin));
+            if (!await manager.RoleExistsAsync(UserRoles.Customer))
+                await manager.CreateAsync(new IdentityRole(UserRoles.Customer));
+            if (!await manager.RoleExistsAsync(UserRoles.Seller))
+                await manager.CreateAsync(new IdentityRole(UserRoles.Seller));
+            if (!await manager.RoleExistsAsync(UserRoles.Employee))
+                await manager.CreateAsync(new IdentityRole(UserRoles.Employee));
+
+        }
 
         public IdentityResult Create(string role)
         {
+           
             return manager.CreateAsync(new IdentityRole(role)).Result;
 
         }

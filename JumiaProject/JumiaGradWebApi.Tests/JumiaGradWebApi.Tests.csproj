@@ -108,12 +108,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\JumiaGradWebApi\JumiaGradWebApi.csproj">
-      <Project>{0BE6BA8D-5214-45D3-9B67-8486F9A89734}</Project>
-      <Name>JumiaGradWebApi</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

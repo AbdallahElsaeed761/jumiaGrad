@@ -21,6 +21,12 @@ namespace BL.Basices
         {
             TheUnitOfWork = new UnitOfWork();
         }
+        public AppServiceBase(IUnitofWork theUnitOfWork, IMapper mapper)
+        {
+            TheUnitOfWork = theUnitOfWork;
+            Mapper = mapper;
+        }
+
 
         public void Dispose()
         {

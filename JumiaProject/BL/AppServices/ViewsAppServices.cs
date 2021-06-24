@@ -16,6 +16,8 @@ namespace BL.AppServices
         }
         public ViewsViewModel Getviews(int id)
         {
+            if (id < 0)
+                throw new ArgumentNullException();
             return Mapper.Map<ViewsViewModel>(TheUnitOfWork.View.GetById(id));
         }
 
@@ -29,6 +31,17 @@ namespace BL.AppServices
             }
             return result;
         }
+        public bool CreateUserWishlist(string customerId)
+        {
+            bool result = false;
+            View userview = new View() { CustomerId = customerId };
+            if (TheUnitOfWork.View.Insert(userview))
+            {
+                result = TheUnitOfWork.Commit() > new int();
+            }
+            return result;
+        }
+
 
         public bool UpdateReview(ViewsViewModel ViewsViewModel)
         {
@@ -39,6 +52,8 @@ namespace BL.AppServices
         }
         public bool DeleteReview(int id)
         {
+             if (id < 0)
+                throw new ArgumentNullException();
             bool result = false;
             TheUnitOfWork.View.Delete(id);
             result = TheUnitOfWork.Commit() > new int();

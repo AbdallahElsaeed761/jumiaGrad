@@ -22,7 +22,8 @@ namespace DAL.Models
         public string Fname { get; set; }
         [Required]
         [StringLength(20, MinimumLength = 3)]
-        public string Lanme { get; set; }
+        public string Lname { get; set; }
+
         [Required]
         [StringLength(20, MinimumLength = 3)]
         public string Address { get; set; }

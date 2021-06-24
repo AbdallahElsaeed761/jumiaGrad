@@ -17,3 +17,4 @@ D:\ForMe\MVC\Project\JumiaGP\jumiaGrad\JumiaProject\DAL\obj\Debug\DAL.pdb
 D:\ForMe\MVC\Project\JumiaGP\jumiaGrad\JumiaProject\DAL\obj\Debug\DAL.Migrations.first.resources
 D:\ForMe\MVC\Project\JumiaGP\jumiaGrad\JumiaProject\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
 D:\ForMe\MVC\Project\JumiaGP\jumiaGrad\JumiaProject\DAL\obj\Debug\DAL.Migrations.editPayment.resources
+D:\ForMe\MVC\Project\JumiaGP\jumiaGrad\JumiaProject\DAL\obj\Debug\DAL.Migrations.third.resources

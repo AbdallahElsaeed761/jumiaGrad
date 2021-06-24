@@ -1,4 +1,6 @@
-﻿using BL.ViewModels;
+﻿using AutoMapper;
+using BL.Interfaces;
+using BL.ViewModels;
 using DAL.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -12,21 +14,38 @@ namespace BL.AppServices
 {
    public class RoleAppServices:Basices.AppServiceBase
     {
+        public RoleAppServices(IUnitofWork theUnitOfWork, IMapper mapper) : base(theUnitOfWork, mapper)
+        {
+
+        }
+        public async Task CreateRoles()
+        {
+            await TheUnitOfWork.Role.CreateRoles();
+        }
         public IdentityResult Create(string rolename)
         {
             return TheUnitOfWork.Role.Create(rolename);
         }
+        
         public RoleViewModel GetRoleById(string id)
         {
+            if (id == null || id == "")
+                throw new ArgumentNullException();
             return Mapper.Map<RoleViewModel>(TheUnitOfWork.Role.GetRoleByID(id));
         }
-        public IdentityResult Update(RoleViewModel roleViewModel)
+       
+        public   IdentityResult Update(RoleViewModel roleViewModel)
         {
+            if (roleViewModel == null)
+                throw new ArgumentNullException();
+           
             var role = Mapper.Map<IdentityRole>(roleViewModel);
-            return TheUnitOfWork.Role.UpdateRole(role);
+            return  TheUnitOfWork.Role.UpdateRole(role);
         }
         public bool DeleteRole(string id)
         {
+            if (id == null || id == "")
+                throw new ArgumentNullException();
             bool result = false;
             TheUnitOfWork.Role.DeleteRole(id);
             result = TheUnitOfWork.Commit() > new int();
